@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script type="text/javascript">
+		function fill() {
+	 		// body...
+	 	
+	 	var hand = document.getElementById('sel');
+	 	arr = ['UG','PG']
+	
+	 	for(var i=0;i<arr.length;i++){
+
+	 		var ele = document.createElement('option')
+	 		ele.text=arr[i];
+	 		hand.add(ele,i);
+	 	}
+	 }
+	 function ff() {
+	 	
+	 	 	opts = [['CSE','ECE','BA'],['ME','PE','CHEM']]
+
+	 	 	var dd = document.getElementById('sel');
+	 	 	var hand1 = document.getElementById('item');
+	 	 	hand1.innerHTML=null;
+
+	 	 	idx = dd.selectedIndex;
+
+	 	 	for(i=0;i<opts[idx].length;i++){
+
+	 	 	 
+	 	 		var ele1 = document.createElement('option');
+	 	 		ele1.text = opts[idx][i];
+	 	 		hand1.add(ele1,i);
+
+
+
+	 	 	}
+	 	 
+	 }
+
+	 	function show(){
+	 		var x = document.getElementById("pw");
+	 		var y = document.getElementById("Bike")
+
+ 				 if (y.checked) {
+  						  x.type = "text";
+					  } else 
+					  {
+  			 				 x.type = "password";
+ 					 }
+
+	 	}
+
+	 function dobVal(){
+	 		var d=new Date();
+
+
+                        var year=d.getFullYear();
+                        var mon= d.getMonth()+1;
+                        var d=d.getDate();
+
+                                if(d<10)
+                                        d='0'+d;
+                                        if(mon<10)
+                                        mon='0'+mon;
+                document.getElementById('dob').max=year+'-'+mon+'-'+d;    
+
+                var d2=new Date();  
+                var year1=d2.getFullYear()-18;
+                        var mon1= d2.getMonth()+1;
+                        var d1=d2.getDate();
+
+                        if(d1<10)
+                                        d1='0'+d1;
+                                        if(mon1<10)
+                                        mon1='0'+mon1;
+                document.getElementById('dob').min=year1+'-'+mon1+'-'+d1;    
+   
+
+
+	 }
+
+
+
+
+
+	</script>
+
+
+	<script type="text/javascript" src="validation.js"></script>
+
+
+
+</head>
+<body onload="fill()">
+	<form id = 'dosub' action="/ext.html" >
+	<table align='center' style="background-color: cyan">
+		<caption>Registration Form</caption>
+		<tr>
+			<td>User Name:</td>
+			<td><input type="text" name="" required></td>
+
+		</tr>
+		<td>
+		<tr>
+			<td>Password:</td>
+			<td><input type="password" id='pw' required><input type="checkbox" name="che" id="Bike" onclick="show()">Show Password</td>
+
+
+		</tr></td>
+		<td>
+		<tr>
+			<td>Confirm Password:</td>
+			<td><input type="text" id='cpw' required></td>
+			<td>
+		<select id='sel' onchange="ff()" >
+			<option>Select Course</option>
+			 </select></td>
+
+			 <td> <select id ='item' required></select></td>
+
+		</tr>
+		<tr>
+			<td>
+				
+				DOB: <input type="date" name="" id='dob' onclick="dobVal()" required>  
+
+			</td>
+
+		</tr>
+
+	</tr>
+
+				<td></td>
+				<td><input type="submit" name='sub' onclick='return check()'></td>
+
+
+		</tr>
+		
+ 
+
+
+			 
+
+		 
+
+	</table></form>
+
+
+</body>
+</html>
